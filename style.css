@@ -1,0 +1,252 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #f4f6f9;
+    color: #222;
+    overflow-x: hidden;
+}
+
+/* ========================= */
+/* ANIMATED BACKGROUND (2 BULATAN) */
+/* ========================= */
+
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    filter: blur(120px);
+    z-index: -1;
+}
+
+body::before {
+    background: rgba(0,119,255,0.5);
+    animation: moveOne 8s infinite alternate ease-in-out;
+}
+
+body::after {
+    background: rgba(0,200,255,0.4);
+    animation: moveTwo 10s infinite alternate ease-in-out;
+}
+
+@keyframes moveOne {
+    0% { transform: translate(-200px, -200px); }
+    100% { transform: translate(500px, 300px); }
+}
+
+@keyframes moveTwo {
+    0% { transform: translate(600px, -100px); }
+    100% { transform: translate(-200px, 400px); }
+}
+
+/* ========================= */
+/* NAVBAR */
+/* ========================= */
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 10%;
+    background: rgba(255,255,255,0.8);
+    backdrop-filter: blur(15px);
+    position: sticky;
+    top: 0;
+}
+
+nav {
+    display: flex;
+    z-index: 1000;}
+
+.logo {
+    color: #0077ff;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+nav ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+nav a {
+    position: relative;
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+/* underline animation */
+nav a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    left: 0;
+    bottom: -5px;
+    background: linear-gradient(90deg, #0077ff, #00c6ff);
+    transition: 0.3s;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+nav a:hover {
+    color: #0077ff;
+    transform: translateY(-2px);
+}
+
+/* ========================= */
+/* HERO */
+/* ========================= */
+
+.hero {
+    text-align: center;
+    padding: 120px 10%;
+}
+
+.profile-img {
+    width: 260px;
+    border-radius: 50%;
+    border: 6px solid #0077ff;
+    margin-bottom: 30px;
+    transition: 0.5s;
+}
+
+.profile-img:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 40px rgba(0,119,255,0.6);
+}
+
+.hero h1 {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.hero span {
+    background: linear-gradient(90deg, #0077ff, #00c6ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.typing {
+    font-size: 20px;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+/* ========================= */
+/* BUTTON GRADIENT */
+/* ========================= */
+
+.btn {
+    position: relative;
+    padding: 14px 35px;
+    background: linear-gradient(90deg, #0077ff, #00c6ff);
+    color: white;
+    text-decoration: none;
+    border-radius: 40px;
+    font-size: 16px;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 30px rgba(0,119,255,0.4);
+}
+
+/* shine effect */
+.btn::before {
+    content: "";
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    top: 0;
+    left: -60%;
+    background: rgba(255,255,255,0.3);
+    transform: skewX(-25deg);
+    transition: 0.5s;
+}
+
+.btn:hover::before {
+    left: 120%;
+}
+
+/* ========================= */
+/* SECTION */
+/* ========================= */
+
+section {
+    padding: 100px 10%;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1s ease;
+}
+
+section.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+section h2 {
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+
+/* ABOUT CARD GLASS */
+#about p {
+    background: rgba(255,255,255,0.6);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 20px;
+    max-width: 800px;
+    margin: auto;
+    font-size: 18px;
+    line-height: 1.7;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+/* ========================= */
+/* PROJECT */
+/* ========================= */
+
+.project-container {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.project-card {
+    background: white;
+    padding: 30px;
+    width: 350px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    transition: 0.4s;
+}
+
+.project-card:hover {
+    transform: translateY(-12px) scale(1.03);
+    box-shadow: 0 20px 40px rgba(0,119,255,0.3);
+}
+
+footer{
+    text-align: center;
+    padding: 40px;
+    margin-top: 50px;
+    background: rgba(255,255,255,0.8);
+    backdrop-filter: blur(10px);
+}
